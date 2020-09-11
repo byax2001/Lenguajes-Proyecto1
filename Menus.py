@@ -18,6 +18,7 @@ class Bienvenida:
         print("4.Guardar AFD en archivo")
         print("5.Generar reporte AFD")
         print("6.Generar Gramatica Regular")
+        print("7.Salir")
     def Menugramaticas(self):
         print("1.Crear Gramaticas")
         print("2.Cargar archivo de entrada")
@@ -25,3 +26,7 @@ class Bienvenida:
         print("4.Eliminar recursividad por la izquierda")
         print("5.Generar AFD en archivo")
         print("6.Generar reporte de Gramatica Regular")
+        print("7.Salir")
+    #Apartado 1
+    #Apartado 2
+    #Apartado 3
