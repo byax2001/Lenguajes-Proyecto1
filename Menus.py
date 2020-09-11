@@ -28,5 +28,6 @@ class Bienvenida:
         print("6.Generar reporte de Gramatica Regular")
         print("7.Salir")
     #Apartado 1
+
     #Apartado 2
     #Apartado 3
