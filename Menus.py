@@ -27,6 +27,72 @@ class Bienvenida:
         print("5.Generar AFD en archivo")
         print("6.Generar reporte de Gramatica Regular")
         print("7.Salir")
+
+    def existenciaestados(estado,listaingreso):
+            # Se ingresa el estado, si existe no pasa nada por que no hay prints, si no existe dara error y pasara a guardar en lista el valor
+            if listaingreso.count(estado) == 0:
+                listaingreso.append(estado)
+            else:
+                print("-------------Dicho estado ya se encuentra ingresado-----------")
+                estado = input("Ingrese otro estado: ")
+                listaingreso.append(estado)
+            return listaingreso
+    def existenciaAlfabeto(alfabeto,alfabeto1afd,estado1afd):
+        if alfabeto1afd.count(alfabeto) == 0 and estado1afd.count(alfabeto) == 0:
+            alfabeto1afd.append(alfabeto)
+        else:
+            alfabeto = input("Dicho signo o estado ya se encuentra almacenado en el alfabeto escriba otro: ")
+            alfabeto1afd.append(alfabeto)
+        return alfabeto1afd
+    def Menuestadosaceptacion(estadoaceptacion,estado1afd, estadoaceptacicon1afd):
+        if estado1afd.count(estadoaceptacion) == 0:
+            print("\nNo existe dicho estado en los estados anteriormente ingresados")
+            estadoaceptacion = input("Ingrese el nombre de un estado que exista: ")
+        estadoaceptacicon1afd.append(estadoaceptacion)
+        return estadoaceptacicon1afd
+
+    def Transiciones(transicion,transiciones1afd):
+        n=0
+        parte1 = transicion.split(",")
+        parte0 = [parte1[0]]
+        parte2 = parte1[1].split(";")
+        parte0.extend(parte2)
+        if len(parte0) == 3:
+            for i in range(len(transiciones1afd)):
+                if transiciones1afd[i][0] == parte0[0] and transiciones1afd[i][1] == parte0[1]:
+                    n += 1
+            if n == 0:
+                transiciones1afd.append(parte0)
+            else:
+                transicion = input("Esta transicion destruye el afd ingrese otra (Estado origen,simbolo de entrada,Estado Destino): ")
+                parte1 = transicion.split(",")
+                parte0 = [parte1[0]]
+                parte2 = parte1[1].split(";")
+                parte0.extend(parte2)
+                transiciones1afd.append(parte0)
+        else:
+            transicion = input("Cadena de ingreso incorrecta ingrese otra respetando el formato: ")
+            parte1 = transicion.split(",")
+            parte0 = [parte1[0]]
+            parte2 = parte1[1].split(";")
+            parte0.extend(parte2)
+            transiciones1afd.append(parte0)
+            if len(parte0) == 3:
+                for i in range(len(transiciones1afd)):
+                    if transiciones1afd[i][0] == parte0[0] and transiciones1afd[i][1] == parte0[1]:
+                        n += 1
+                if n == 0:
+                    transiciones1afd.append(parte0)
+                else:
+                    transicion = input(
+                        "Esta transicion destruye el afd ingrese otra (Estado origen,simbolo de entrada,Estado Destino): ")
+                    parte1 = transicion.split(",")
+                    parte0 = [parte1[0]]
+                    parte2 = parte1[1].split(";")
+                    parte0.extend(parte2)
+                    transiciones1afd.append(parte0)
+        return transiciones1afd
+
     #Apartado 1
 
     #Apartado 2
