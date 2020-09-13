@@ -1,10 +1,15 @@
 import Menus
+import csv
+import os
+from io import open
+
 afd=[]
 #afd1=[nombre,estados[],alfabetos[],estadoinicial,estadosdeaceptacion,transiciones]
 estado1afd=[]
 alfabeto1afd=[]
 estadoaceptacicon1afd=[]
 transiciones1afd=[]
+
 
 
 Menus.Bienvenida.impbienvenida("")
@@ -63,9 +68,20 @@ while n != 4:
                         transiciones1afd=Menus.Bienvenida.Transiciones(transicion,transiciones1afd)
                 lista=[nombre,estado1afd,alfabeto1afd,estadoini,estadoaceptacicon1afd,transiciones1afd]
                 afd.append(lista)
-
+#-------------------------------------------------------Apartado 2
             elif n1==2:
-                print("")
+                listanueva=[]
+                print("\n---------------Ingreso de afd's---------------")
+                nombre=input("Ingrese nombre del archivo: ")
+                archivo=open(f"{nombre}.afd","r")
+                listalineas=archivo.readlines()
+                archivo.close()
+
+                for i in listalineas:
+                    listanueva.append(i.rstrip("\n"))
+                n=0
+                afd=Menus.Bienvenida.Ingresoafd(n,listanueva,afd)
+
             elif n1==3:
                 print('')
             elif n1==4:

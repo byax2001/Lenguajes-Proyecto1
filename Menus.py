@@ -93,6 +93,42 @@ class Bienvenida:
                     transiciones1afd.append(parte0)
         return transiciones1afd
 
+    def Ingresoafd(n,listaafd,afd):
+        n=0
+        afd=[]
+        transiciones=[]
+
+        while n!= len(listaafd):
+
+            nombre = listaafd[n]
+            n += 1
+            estados=listaafd[n].split(",")
+            n+=1
+            alfabeto=listaafd[n].split(",")
+            n+=1
+            estadoinicial=listaafd[n]
+            n+=1
+            estadoaceptacion=listaafd[n].split(",")
+            n+=1
+
+            while listaafd[n]!="%":
+                parte1=listaafd[n].split(",")
+                parte2=[parte1[0]]
+                parte3=parte1[1].split(";")
+                parte2.extend(parte3)
+                transiciones.append(parte2)
+                n+=1
+
+            lista = [nombre, estados, alfabeto, estadoinicial, estadoaceptacion, transiciones]
+            afd.append(lista)
+            if listaafd[n]=="%":
+                n+=1
+
+        #nombre,stado,aflabeto,estado inic, estadoaceptacion,transiciones
+
+        return afd
+
+
     #Apartado 1
 
     #Apartado 2
