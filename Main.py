@@ -1,4 +1,5 @@
 import Menus
+import Automata
 import csv
 import os
 from io import open
@@ -9,8 +10,6 @@ estado1afd=[]
 alfabeto1afd=[]
 estadoaceptacicon1afd=[]
 transiciones1afd=[]
-
-
 
 Menus.Bienvenida.impbienvenida("")
 Menus.Bienvenida.Menuprincipal("")
@@ -81,9 +80,30 @@ while n != 4:
                     listanueva.append(i.rstrip("\n"))
                 n=0
                 afd=Menus.Bienvenida.Ingresoafd(n,listanueva,afd)
-
+                print("-----------------Ingreso Exitoso-----------------")
+#---------------------------------------------------------APARTADO 3
             elif n1==3:
-                print('')
+                Cadenacorrecta=True
+                print('----------------Evaluacion de cadenas---------------')
+                n=0
+                for i in afd:
+                    n+=1
+                    print(f"{n}.{i}")
+                print("Opciones:")
+                print("1.Evaluar Cadena")
+                print("2.Ruta en AFD")
+                n=int(input("Ingrese una opcion: "))
+                if n==1:
+                    numero=int(input("Ingrese numero de afd: "))
+                    cadena=input("\nIngrese una cadena: ")
+                    Cadenacorrecta=Automata.Afd.Evaluacionafd(afd[numero-1],cadena)
+                    if Cadenacorrecta==True:
+                        print("La cadena es valida")
+                    else:
+                        print("La cadena es invalida")
+
+
+                    #RECORDARSE DEL N-1 A LA HORA DE ESCOGER LA OPCION SI NO SE SALE DE LA LISTA
             elif n1==4:
                 print("")
             elif n1==5:
