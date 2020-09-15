@@ -36,43 +36,38 @@ class Afd:
             for signo in cadena:
                 if n==len(cadena):
                     TransicionExiste=True
-                    print("JIJOLINES")
+
                 else:
                     if index2 == 0:
                         index2 = Afd.index(transiciones, estadoinicial, signo)
                         if index2 == len(transiciones):
                             TransicionExiste = True
-                            print("JIJOLINESPAPT")
+
                         else:
                             estadoactual = transiciones[index2][2]
                             index2=Afd.index(transiciones,estadoactual,signo)
                             print(estadoactual)
                             n += 1
-                            print("JIJOLINESPIP")
 
                     else:
                         index2 = Afd.index(transiciones, estadoactual, signo)
                         if index2 == len(transiciones):
                             TransicionExiste = True
-                            print("MIXD")
+
                         else:
                             estadoactual = transiciones[index2][2]
                             index2 = Afd.index(transiciones, estadoactual, signo)
                             n += 1
                             print(estadoactual)
-                            print("Hollysh")
+
 
         n2=0
         for i in posiblesfinales:
            if i==cadena[len(cadena)-1]:
                n2+=1
-        print("------------------------------------------------------------------")
-        print(n)
-        print(n2)
 
         if n2>0 and n==len(cadena):
             Cadenacorrecta=True
-            print("xD")
             return Cadenacorrecta
         else:
             Cadenacorrecta=False
@@ -87,9 +82,11 @@ class Afd:
         existe=False
         numero=0
         while existe==False:
-            print("XD")
+
             if numero==tam:
+                print("XD")
                 existe==True
+                break
             else:
                 if listatransiciones[numero][0]==Estadoizq and listatransiciones[numero][1]==signo:
                     existe=True
