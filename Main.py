@@ -101,6 +101,11 @@ while n != 4:
                         print("La cadena es valida")
                     else:
                         print("La cadena es invalida")
+                elif n==2:
+                    numero = int(input("Ingrese numero de afd: "))
+                    cadena = input("\nIngrese una cadena: ")
+                    Automata.Afd.rutaevaluaciones(afd[numero - 1], cadena)
+                    print("\n")
 
 
                     #RECORDARSE DEL N-1 A LA HORA DE ESCOGER LA OPCION SI NO SE SALE DE LA LISTA
