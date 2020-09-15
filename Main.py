@@ -1,5 +1,6 @@
 import Menus
 import Automata
+import Guardarafd
 import csv
 import os
 from io import open
@@ -107,10 +108,17 @@ while n != 4:
                     Automata.Afd.rutaevaluaciones(afd[numero - 1], cadena)
                     print("\n")
 
-
-                    #RECORDARSE DEL N-1 A LA HORA DE ESCOGER LA OPCION SI NO SE SALE DE LA LISTA
+#----------------------------------------Apartado 4
             elif n1==4:
-                print("")
+                print("----------------GUARDAR ARCHIVO---------------")
+                n = 0
+                for i in afd:
+                    n += 1
+                    print(f"{n}.{i}")
+                noarchivo=int(input("Ingrese numero de afd a guardar: "))
+                Guardarafd.Guardar.guardarafd(afd[noarchivo-1])
+
+
             elif n1==5:
                 print('')
             elif n1==6:
