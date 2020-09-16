@@ -11,7 +11,13 @@ estado1afd=[]
 alfabeto1afd=[]
 estadoaceptacicon1afd=[]
 transiciones1afd=[]
-
+n=0
+l=[2,"d",4]
+j=["lol"]
+x=l.copy()
+j.append(x)
+l.clear()
+print(j)
 Menus.Bienvenida.impbienvenida("")
 Menus.Bienvenida.Menuprincipal("")
 n=int(input("Ingrese una opcion: "))
