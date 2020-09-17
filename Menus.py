@@ -116,7 +116,6 @@ class Bienvenida:
                 parte3=parte1[1].split(";")
                 parte2.extend(parte3)
                 transiciones.append(parte2)
-                print(f"{n}----------------------------------")
                 n+=1
             transicion1=transiciones.copy()
             transiciones.clear()

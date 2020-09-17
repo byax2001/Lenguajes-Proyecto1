@@ -1,9 +1,11 @@
 import Menus
 import Automata
 import Guardarafd
+import Reporte
 import csv
 import os
 from io import open
+
 
 afd=[]
 #afd1=[nombre,estados[],alfabetos[],estadoinicial,estadosdeaceptacion,transiciones]
@@ -12,12 +14,6 @@ alfabeto1afd=[]
 estadoaceptacicon1afd=[]
 transiciones1afd=[]
 n=0
-l=[2,"d",4]
-j=["lol"]
-x=l.copy()
-j.append(x)
-l.clear()
-print(j)
 Menus.Bienvenida.impbienvenida("")
 Menus.Bienvenida.Menuprincipal("")
 n=int(input("Ingrese una opcion: "))
@@ -126,7 +122,16 @@ while n != 4:
 
 
             elif n1==5:
-                print('')
+                print("---------------GENERACION DE REPORTE--------------")
+                if len(afd)==0:
+                    print("No se han ingresado AFD's")
+                else:
+                    for i in afd:
+                        n+=1
+                        print(f"{n}.{i}")
+                    n=int(input("Escoja numero de afd para generar reporte: "))
+                    Reporte.reporte.generarreporte(afd[n-1])
+                    print("----------GENERACION DE REPORTE EXITOSO-------")
             elif n1==6:
                 print("")
 
