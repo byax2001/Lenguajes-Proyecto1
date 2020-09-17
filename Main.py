@@ -2,6 +2,7 @@ import Menus
 import Automata
 import Guardarafd
 import Reporte
+import AfdGramaticaRegular
 import csv
 import os
 from io import open
@@ -122,6 +123,7 @@ while n != 4:
 
 
             elif n1==5:
+                n=0
                 print("---------------GENERACION DE REPORTE--------------")
                 if len(afd)==0:
                     print("No se han ingresado AFD's")
@@ -133,7 +135,26 @@ while n != 4:
                     Reporte.reporte.generarreporte(afd[n-1])
                     print("----------GENERACION DE REPORTE EXITOSO-------")
             elif n1==6:
-                print("")
+                n=0
+                print("------------GENERACION DE GRAMATICA--------------")
+                if len(afd)==0:
+                    print("No se han ingresado AFD's")
+                else:
+                    #Terminales el alfabeto
+                    #No terminales, estados
+                    #Inicio, estado inicial
+
+                    for i in afd:
+                        n+=1
+                        print(f"{n}.{i}")
+                    n = int(input("Escoja numero de afd para generar reporte: "))
+                    AfdGramaticaRegular.gramaticaRegular.generacionDeGramatica(afd[n-1])
+                    opcion=input("\nDesea generar un reporte del afd escogido? (si/no): ")
+                    if opcion=="si":
+                        Reporte.reporte.generarreporte(afd[n-1])
+                        print("***Gramatica y reporte generados con exito***")
+                    else:
+                        print("***Gramatica realizada con exito***")
 
             Menus.Bienvenida.Menuafd("")
             n1 = int(input("Ingrese una opcion: "))

@@ -125,7 +125,7 @@ class Bienvenida:
             if listaafd[n]=="%":
                 n+=1
 
-        #nombre,stado,aflabeto,estado inic, estadoaceptacion,transiciones
+        #nombre,estado,alfabeto,estado inic, estadoaceptacion,transiciones
 
         return afd
 
