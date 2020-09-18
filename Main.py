@@ -4,6 +4,7 @@ import Guardarafd
 import Reporte
 import AfdGramaticaRegular
 import ModuloGramatica1
+import ModuloGramatica2
 import csv
 import os
 from io import open
@@ -171,7 +172,7 @@ while n != 4:
                 print("\n------------------Opcion incorrecta--------------------")
 #Apartado 2------------------------------------------------------------------------------------------------------
     elif n==2:
-
+        print("------------MODULO DE GRAMATICAS--------------")
         Menus.Bienvenida.Menugramaticas("")
         n1=int(input("Ingrese una opcion: "))
         if n1>7 and n1<0:
@@ -194,22 +195,33 @@ while n != 4:
                 Noterminalinicial=ModuloGramatica1.gramatica.Noterminalini(Noterminales)
             #-----------------------------------------------------------------
                 print("---------------Ingreso de producciones (Ej: A > 2 B)-----------------")
-                N=int(input("Igrese numero de producciones a agregar: "))
+                N=int(input("Ingrese NUMERO de producciones a agregar: "))
                 producciones=ModuloGramatica1.gramatica.producciones(Terminales,Noterminales,N)
-            lista=[nombregramatica,Noterminales,Terminales,Noterminalinicial,producciones]
-            Gramatica.append(lista)
-            print(Gramatica)
+                lista=[nombregramatica,Noterminales,Terminales,Noterminalinicial,producciones]
+                Gramatica.append(lista)
+            elif n1==2:
+                listanueva = []
+                print("\n---------------Ingreso de Gramaticas---------------")
+                nombre = input("Ingrese nombre del archivo: ")
+                archivo = open(f"{nombre}.gre", "r")
+                listalineas = archivo.readlines()
+                archivo.close()
+                for i in listalineas:
+                    listanueva.append(i.rstrip("\n"))
+                n=0
+                Gramatica=ModuloGramatica2.gramatica.Ingresogramatica(listanueva,Gramatica)
+                print("\n-------------Gramaticas ingresadas con exito---------------")
+                print("\n")
+
+            elif n1==3:
 
 
-            if n1==2:
                 print("xd")
-            if n1==3:
-                print("xd")
-            if n1==4:
+            elif n1==4:
                 print("xd")
             if n1==5:
                 print("xd")
-            if n1==6:
+            elif n1==6:
                 print("xd")
             Menus.Bienvenida.Menugramaticas("")
             n1 = int(input("Ingrese una opcion: "))

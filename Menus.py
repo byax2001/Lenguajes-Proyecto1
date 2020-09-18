@@ -94,8 +94,8 @@ class Bienvenida:
         return transiciones1afd
 
     def Ingresoafd(n,listaafd,afd):
+
         n=0
-        afd=[]
         transiciones=[]
 
         while n!= len(listaafd):

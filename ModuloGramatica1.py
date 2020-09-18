@@ -63,12 +63,10 @@ class gramatica:
 #-------si tiene mas que 2 entonces si se encuentran ambos estados ingresados:
             if len(p)==4 or len(p)==3 and p[1]==">":
 
-                print("SI CUMPLIO CON EL FORMATO")
                 existe=gramatica.comprobantetransiciones(listaterminales,listanoterminales,p)
                 if existe==True:
                     p3=gramatica.produccionAingresar(p)
                     producciones.append(p3)
-                    print("XD")
                 else:
                     print("Existe un Terminal o No terminal no ingresado ")
                     produccion=input("Ingrese otra produccion: ")
@@ -96,10 +94,10 @@ class gramatica:
         n=0
         k=0
         ingreso=True
-        for i in listaterminales:
+        for i in listanoterminales:
             if i == p[0] or i == p[3]:
                 n += 1
-        for i in listanoterminales:
+        for i in listaterminales:
             if i == p[2]:
                 k += 1
         if n>1 and k>0:
