@@ -3,18 +3,26 @@ import Automata
 import Guardarafd
 import Reporte
 import AfdGramaticaRegular
+import ModuloGramatica1
 import csv
 import os
 from io import open
-
-
+Gramatica=[]
 afd=[]
+# Gramatica=[nombre,No terminales,terminales,No terminal inicial,producciones]
+nombregramatica=""
+Noterminales=[]
+Terminales=[]
+Noterminalinicial=""
+producciones=[]
+
 #afd1=[nombre,estados[],alfabetos[],estadoinicial,estadosdeaceptacion,transiciones]
 estado1afd=[]
 alfabeto1afd=[]
 estadoaceptacicon1afd=[]
 transiciones1afd=[]
 n=0
+
 Menus.Bienvenida.impbienvenida("")
 Menus.Bienvenida.Menuprincipal("")
 n=int(input("Ingrese una opcion: "))
@@ -34,7 +42,7 @@ while n != 4:
             if n1==1:
                 print("\n--------Ingreso de nombre de AFD-----")
                 nombre=input("Ingrese un nombre: ")
-                #---------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------
                 print("\n----------Ingreso de Estado----------")
                 n=int(input("Ingrese numero de estados a agregar: "))
                 for i in range(n):
@@ -87,6 +95,7 @@ while n != 4:
                 print("-----------------Ingreso Exitoso-----------------")
 #---------------------------------------------------------APARTADO 3
             elif n1==3:
+
                 Cadenacorrecta=True
                 print('----------------Evaluacion de cadenas---------------')
                 n=0
@@ -160,10 +169,54 @@ while n != 4:
             n1 = int(input("Ingrese una opcion: "))
             if n1 > 8 or n1 < 1:
                 print("\n------------------Opcion incorrecta--------------------")
-
-    #Apartado 2------------------------------------------------------------------------------------------------------
+#Apartado 2------------------------------------------------------------------------------------------------------
     elif n==2:
+
         Menus.Bienvenida.Menugramaticas("")
+        n1=int(input("Ingrese una opcion: "))
+        if n1>7 and n1<0:
+            print("opcion invalida")
+        while n1!=7:
+            if n1==1:
+                print("--------------INGRESO DE GRAMATICA------------")
+                # Gramatica=[nombre,No terminales,terminales,No terminal inicial,producciones]
+                nombregramatica=input("Inserte Nombre de Gramatica: ")
+            #----------------------------------------------------------------------------------
+                print("---------------Ingreso de No terminales-----------")
+                N=int(input("Ingrese numero de No terminales a ingresar: "))
+                Noterminales=ModuloGramatica1.gramatica.IngresoNoterminales(N)
+            #---------------------------------------------------------------------------------
+                print("----------------Ingreso de Terminales--------------")
+                N = int(input("Ingrese numero de Terminales a ingresar: "))
+                Terminales=ModuloGramatica1.gramatica.IngresoTerminalees(N,Noterminales)
+            #-----------------------------------------------------------------
+                print("----------------Ingreso No Terminal Inicial")
+                Noterminalinicial=ModuloGramatica1.gramatica.Noterminalini(Noterminales)
+            #-----------------------------------------------------------------
+                print("---------------Ingreso de producciones (Ej: A > 2 B)-----------------")
+                N=int(input("Igrese numero de producciones a agregar: "))
+                producciones=ModuloGramatica1.gramatica.producciones(Terminales,Noterminales,N)
+            lista=[nombregramatica,Noterminales,Terminales,Noterminalinicial,producciones]
+            Gramatica.append(lista)
+            print(Gramatica)
+
+
+            if n1==2:
+                print("xd")
+            if n1==3:
+                print("xd")
+            if n1==4:
+                print("xd")
+            if n1==5:
+                print("xd")
+            if n1==6:
+                print("xd")
+            Menus.Bienvenida.Menugramaticas("")
+            n1 = int(input("Ingrese una opcion: "))
+            if n1 > 7 and n1 < 0:
+                print("opcion invalida")
+
+
     #Apartado 3
     elif n==3:
         print("Apartado 3")

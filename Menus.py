@@ -120,6 +120,7 @@ class Bienvenida:
             transicion1=transiciones.copy()
             transiciones.clear()
             lista = [nombre, estados, alfabeto, estadoinicial, estadoaceptacion, transicion1]
+
             afd.append(lista)
 
             if listaafd[n]=="%":
