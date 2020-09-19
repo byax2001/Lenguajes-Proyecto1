@@ -33,6 +33,5 @@ class gramatica:
             if listagramatica[n]=="%":
                 n+=1
 
-        #nombre,estado,alfabeto,estado inic, estadoaceptacion,transiciones
 
         return gramatica

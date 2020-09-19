@@ -149,7 +149,8 @@ class Afd:
                         else:
                             estadoactual = transiciones[index2][2]
                             index2=Afd.index(transiciones,estadoactual,signo)
-                            estadosactuales.append(estadoactual)
+                            lista=f"{ transiciones[index2][0]},{transiciones[index2][1]};{transiciones[index2][2]}"
+                            estadosactuales.append(lista)
                             n += 1
 
                     else:
@@ -160,7 +161,8 @@ class Afd:
                         else:
                             estadoactual = transiciones[index2][2]
                             index2 = Afd.index(transiciones, estadoactual, signo)
-                            estadosactuales.append(estadoactual)
+                            lista = f"{transiciones[index2][0]},{transiciones[index2][1]};{transiciones[index2][2]}"
+                            estadosactuales.append(lista)
                             n += 1
 
 
@@ -182,12 +184,8 @@ class Afd:
             return Cadenacorrecta
 #---------------------------------------------------------------------------
     def impresionruta(estadosactuales):
-        for i in range(len(estadosactuales)):
-            if i!=(len(estadosactuales)-1):
-                print(f'{estadosactuales[i]}', end=" -> ")
-            else:
-                print(f'{estadosactuales[i]}, Fin de ruta')
-
+        for i in estadosactuales:
+            print(i)
 
 
 

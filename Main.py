@@ -5,11 +5,14 @@ import Reporte
 import AfdGramaticaRegular
 import ModuloGramatica1
 import ModuloGramatica2
+import ModuloGramatica3
 import csv
 import os
 from io import open
 Gramatica=[]
 afd=[]
+
+
 # Gramatica=[nombre,No terminales,terminales,No terminal inicial,producciones]
 nombregramatica=""
 Noterminales=[]
@@ -214,9 +217,29 @@ while n != 4:
                 print("\n")
 
             elif n1==3:
+                print("----------------Evaluacion de Gramaticas--------------------")
+                n = 0
+                for i in Gramatica:
+                    n += 1
+                    print(f"{n}.{i}")
+                print("Opciones:")
+                print("1.Validar una cadena")
+                print("2.Proceso de Expasion")
+                n = int(input("Ingrese una opcion: "))
+                if n == 1:
+                    numero = int(input("Ingrese numero de Gramatica: "))
+                    cadena = input("\nIngrese una cadena: ")
+                    Cadenacorrecta=ModuloGramatica3.Validacion.validacion(cadena,Gramatica[numero-1])
+                    if Cadenacorrecta == True:
+                        print("La cadena es valida")
+                    else:
+                        print("La cadena es invalida")
+                elif n == 2:
+                    numero = int(input("Ingrese numero de afd: "))
+                    cadena = input("\nIngrese una cadena: ")
+                    Automata.Afd.rutaevaluaciones(afd[numero - 1], cadena)
+                    print("\n")
 
-
-                print("xd")
             elif n1==4:
                 print("xd")
             if n1==5:
