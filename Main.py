@@ -232,13 +232,20 @@ while n != 4:
                     Cadenacorrecta=ModuloGramatica3.Validacion.validacion(cadena,Gramatica[numero-1])
                     if Cadenacorrecta == True:
                         print("La cadena es valida")
+                        print("\n")
                     else:
                         print("La cadena es invalida")
+                        print("\n")
                 elif n == 2:
-                    numero = int(input("Ingrese numero de afd: "))
+                    numero = int(input("Ingrese numero de gramatica: "))
                     cadena = input("\nIngrese una cadena: ")
-                    Automata.Afd.rutaevaluaciones(afd[numero - 1], cadena)
-                    print("\n")
+                    Cadenacorrecta = ModuloGramatica3.Validacion.procesoexpansion(cadena, Gramatica[numero - 1])
+                    if Cadenacorrecta == True:
+                        print("La cadena es valida")
+                        print("\n")
+                    else:
+                        print("La cadena es invalida")
+                        print("\n")
 
             elif n1==4:
                 print("xd")
