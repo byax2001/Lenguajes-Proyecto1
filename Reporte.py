@@ -56,12 +56,13 @@ class reporte:
         pdf.drawText(cuerpotexto)
 #-----------------------------GENERACION DE IMAGEN Y poner esta en pdf---------------------------------------------
         reporte.generarImagen(lista)
-        pdf.drawString(w-(w/2)-20,h-80,"Grafo:")
-        pdf.drawImage(f"{listaafdelegido[0]}.png",w/2-20,h-90-170,width=250,height=170)
+        pdf.drawString(w-(w/2)-50,h-80,"Grafo:")
+        pdf.drawImage(f"{listaafdelegido[0]}.png",w-(w/2)-50,h-90-170,width=280,height=170)
 #--------------------------------CADENA VALIDA-------------------------------------------------------------
         cadena = reporte.Cadenavalida(listaafdelegido)
         pdf.drawString(50,h-(h/2),f'Cadena valida de ejemplo: {cadena}')
         pdf.save()
+        os.system(f"{listaafdelegido[0]}.pdf")
 
 
 #--------------------------------------------------------------------------------------------------------------------------------
