@@ -6,12 +6,15 @@ import AfdGramaticaRegular
 import ModuloGramatica1
 import ModuloGramatica2
 import ModuloGramatica3
+import ModuloGramatica4
+import ModuloGramatica5
 import csv
 import os
 from io import open
 Gramatica=[]
 afd=[]
-
+GramaticaSinRizq=[]
+GramaticaConRizq=[]
 
 # Gramatica=[nombre,No terminales,terminales,No terminal inicial,producciones]
 nombregramatica=""
@@ -246,11 +249,33 @@ while n != 4:
                     else:
                         print("La cadena es invalida")
                         print("\n")
-
+#Modulo 2 opcion 4--------------------------------------------------------------------------------------------------
             elif n1==4:
-                print("xd")
+                listanueva = []
+                print("\n---------------Ingreso de Gramaticas---------------")
+                nombre = input("Ingrese nombre del archivo: ")
+                archivo = open(f"{nombre}.gre", "r")
+                listalineas = archivo.readlines()
+                archivo.close()
+                for i in listalineas:
+                    listanueva.append(i.rstrip("\n"))
+                n = 0
+                GramaticaConRizq = ModuloGramatica2.gramatica.Ingresogramatica(listanueva, Gramatica)
+                GramaticaSinRizq=ModuloGramatica4.Gramaticasinizq.gramaticaSinizq(GramaticaConRizq)
+                print(GramaticaSinRizq)
+
+                print("\n-------------Gramatica con eliminacion de recursividad por la izquierda con exito---------------")
+                print("\n")
+#APARTADO 5 MODULO 2---------------------------------------------------------------------------------
             if n1==5:
-                print("xd")
+                print("----------------GUARDAR ARCHIVO---------------")
+                n = 0
+                for i in Gramatica:
+                    n += 1
+                    print(f"{n}.{i}")
+                noarchivo = int(input("Ingrese numero de gramatica a guardar: "))
+                ModuloGramatica5.archivoGramatica.guardargramatica(Gramatica[noarchivo - 1])
+                print("\n-Archivo generado con exito-\n")
             elif n1==6:
                 print("xd")
             Menus.Bienvenida.Menugramaticas("")
