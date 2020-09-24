@@ -28,18 +28,22 @@ class Gramaticasinizq:
         noterminal2=""
         for k in Noterminales:
             for i in produccionesizq:
+
+                if i[0]==k and len(i)==3:
+                    noterminal1 = f"{k}'"
+                    terminal = i[2]
+                    noterminal2 = f"{k}'"
+                    produccionconvertida1 = [noterminal1, terminal, noterminal2]
+
                 if i[0]==k and len(i)==2:
                     noterminal1=f"{k}"
                     terminal=i[1]
                     noterminal2=f"{k}'"
                     produccionconvertida=[noterminal1,terminal,noterminal2]
                     produccionesSinRizq.append(produccionconvertida)
-                if i[0]==k and len(i)==3:
-                    noterminal1 = f"{k}'"
-                    terminal = i[2]
-                    noterminal2 = f"{k}'"
-                    produccionconvertida = [noterminal1, terminal, noterminal2]
-                    produccionesSinRizq.append(produccionconvertida)
+            produccionesSinRizq.append(produccionconvertida1)
+            produccionfinal=[f"{k}'","Ɛ"]
+            produccionesSinRizq.append(produccionfinal)
         return produccionesSinRizq
 
 

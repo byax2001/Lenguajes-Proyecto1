@@ -16,7 +16,7 @@ class reporte:
 #W WEIDGHT  H ALTURA
         #TITULO
         pdf = canvas.Canvas(f"{listaafdelegido[0]}.pdf",pagesize=A4)
-        pdf.drawString(w-(w/2)-len(Titulodocumento),h-50,Titulodocumento)
+        pdf.drawString(w-(w/2)-len(Titulodocumento)-10,h-50,Titulodocumento)
         #CUERPO
         cuerpotexto=pdf.beginText(50,h-70)
         cuerpotexto.setFont("Times-Roman", 12)

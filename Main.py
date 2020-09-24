@@ -8,6 +8,7 @@ import ModuloGramatica2
 import ModuloGramatica3
 import ModuloGramatica4
 import ModuloGramatica5
+import ModuloGramatica6
 import csv
 import os
 from io import open
@@ -252,7 +253,7 @@ while n != 4:
 #Modulo 2 opcion 4--------------------------------------------------------------------------------------------------
             elif n1==4:
                 listanueva = []
-                print("\n---------------Ingreso de Gramaticas---------------")
+                print("\n---------------Ingreso de Gramaticas con Recursividad por la Izquierda---------------")
                 nombre = input("Ingrese nombre del archivo: ")
                 archivo = open(f"{nombre}.gre", "r")
                 listalineas = archivo.readlines()
@@ -262,7 +263,8 @@ while n != 4:
                 n = 0
                 GramaticaConRizq = ModuloGramatica2.gramatica.Ingresogramatica(listanueva, Gramatica)
                 GramaticaSinRizq=ModuloGramatica4.Gramaticasinizq.gramaticaSinizq(GramaticaConRizq)
-                print(GramaticaSinRizq)
+                for i in GramaticaSinRizq:
+                    print(i)
 
                 print("\n-------------Gramatica con eliminacion de recursividad por la izquierda con exito---------------")
                 print("\n")
@@ -277,7 +279,20 @@ while n != 4:
                 ModuloGramatica5.archivoGramatica.guardargramatica(Gramatica[noarchivo - 1])
                 print("\n-Archivo generado con exito-\n")
             elif n1==6:
-                print("xd")
+                n = 0
+                print("---------------GENERACION DE REPORTE--------------")
+                if len(Gramatica) == 0:
+                    print("No se han ingresado Gramaticas")
+                else:
+                    for i in Gramatica:
+                        n += 1
+                        print(f"{n}.{i}")
+                    n = int(input("Escoja numero gramatica para generar reporte: "))
+                    ModuloGramatica6.reporte.generarreporte(Gramatica[n - 1])
+                    print("----------GENERACION DE REPORTE EXITOSO-------")
+
+
+
             Menus.Bienvenida.Menugramaticas("")
             n1 = int(input("Ingrese una opcion: "))
             if n1 > 7 and n1 < 0:
