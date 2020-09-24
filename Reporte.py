@@ -2,7 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from io import open
 import os
-
+import random
 class reporte:
 
     def generarreporte(listaafdelegido):
@@ -99,19 +99,25 @@ class reporte:
         estados=listaafd[1]
         estadoinicial=listaafd[3]
         estadoactual=estadoinicial
+        ProduccionE=False
         n=0
 #cadena de
+#-------------------------------------------------------------------
 
-        for i in range(len(transiciones)):
-            if transiciones[i][0]==estadoinicial:
-                cadena=transiciones[i][1]
-                estadoactual=transiciones[i][2]
-        print(estadoactual)
-        while estadoactual!=estadosfinales[len(estadosfinales)-1]:
-            if transiciones[n][0]==estadoactual:
-                cadena=cadena+transiciones[n][1]
-                estadoactual=transiciones[n][2]
-            n+=1
+        # cadena de
+        while ProduccionE == False:
+            n = random.randint(0, (len(transiciones) - 1))
+            if transiciones[n][0] == estadoactual:
+                estadoactual = transiciones[n][2]
+                cadena = transiciones[n][1]
+                ProduccionE = True
+
+        while estadoactual!= estadosfinales[len(estadosfinales) - 1]:
+            n = random.randint(0, (len(transiciones) - 1))
+            if transiciones[n][0] == estadoactual:
+                cadena = cadena + transiciones[n][1]
+                estadoactual = transiciones[n][2]
+#-----------------------------------------------------
 
         return cadena
 

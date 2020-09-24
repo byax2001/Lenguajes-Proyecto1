@@ -1,8 +1,8 @@
-digraph Gramatica1{
+digraph AFD1{
 node[style="filled", shape=circle, fillcolor="white"];
 rankdir=LR;A[label="A"];
 B[label="B"];
-C[label="C",shape="doublecircle", fillcolor="cyan" ];
+C[label="C",shape="doublecircle"];
 D[label="D"];
 apuntador[label="",shape="point"];
 apuntador->A;
