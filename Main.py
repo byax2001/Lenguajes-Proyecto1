@@ -9,6 +9,7 @@ import ModuloGramatica3
 import ModuloGramatica4
 import ModuloGramatica5
 import ModuloGramatica6
+import random
 import csv
 import os
 from io import open
@@ -16,7 +17,6 @@ Gramatica=[]
 afd=[]
 GramaticaSinRizq=[]
 GramaticaConRizq=[]
-
 # Gramatica=[nombre,No terminales,terminales,No terminal inicial,producciones]
 nombregramatica=""
 Noterminales=[]

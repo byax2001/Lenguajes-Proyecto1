@@ -2,6 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from io import open
 import os
+import random
 
 class reporte:
 
@@ -68,8 +69,8 @@ class reporte:
         pdf.drawString(w-(w/2)-50,h-80,"Grafo:")
         pdf.drawImage(f"{lista[0]}.png",w-(w/2)-50,h-90-170,width=280,height=170)
 #--------------------------------CADENA VALIDA-------------------------------------------------------------
-       # cadena = reporte.Cadenavalida(lista)
-       # pdf.drawString(50,h-(h/2),f'Cadena valida de ejemplo: {cadena}')
+        cadena = reporte.Cadenavalida(lista)
+        pdf.drawString(50,h-(h/2),f'Cadena valida de ejemplo: {cadena}')
         pdf.save()
         os.system(f"{lista[0]}.pdf")
 
@@ -102,25 +103,36 @@ class reporte:
         archivo.close()
         os.system(f"dot -Tpng {listagramatica[0]}.dot -o {listagramatica[0]}.png ")
 
-    def Cadenavalida(listaafd):
+    def Cadenavalida(listagramatica):
         cadena=""
-        transiciones=listaafd[5]
-        estadosfinales=listaafd[4]
-        estados=listaafd[1]
-        estadoinicial=listaafd[3]
-        estadoactual=estadoinicial
+        producciones=listagramatica[4]
+        Ntf=reporte.noterminalesfinales(producciones)
+        noterminales=listagramatica[1]
+        noterminalinicial=listagramatica[3]
+        ProduccionE=False
+        noterminalActual=noterminalinicial
         n=0
 #cadena de
+        while ProduccionE==False:
+            n=random.randint(0,(len(producciones)-1))
+            if producciones[n][0]==noterminalActual and producciones[n][1]!="$":
+                noterminalActual=producciones[n][2]
+                cadena=producciones[n][1]
+                ProduccionE=True
 
-        for i in range(len(transiciones)):
-            if transiciones[i][0]==estadoinicial:
-                cadena=transiciones[i][1]
-                estadoactual=transiciones[i][2]
-        print(estadoactual)
-        while estadoactual!=estadosfinales[len(estadosfinales)-1]:
-            if transiciones[n][0]==estadoactual:
-                cadena=cadena+transiciones[n][1]
-                estadoactual=transiciones[n][2]
-            n+=1
+        while noterminalActual!=Ntf[len(Ntf)-1]:
+            n = random.randint(0, (len(producciones)-1))
+            if producciones[n][0]==noterminalActual and len(producciones[n])!=2:
+                cadena=cadena+producciones[n][1]
+                noterminalActual=producciones[n][2]
+
+
 
         return cadena
+
+    def noterminalesfinales(producciones):
+        Ntf=[]
+        for i in producciones:
+            if len(i)==2:
+                Ntf.append(i[0])
+        return Ntf

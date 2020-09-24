@@ -1,0 +1,17 @@
+digraph Gramatica1{
+node[style="filled", shape=circle, fillcolor="white"];
+rankdir=LR;A[label="A"];
+B[label="B"];
+C[label="C",shape="doublecircle", fillcolor="cyan" ];
+D[label="D"];
+apuntador[label="",shape="point"];
+apuntador->A;
+A->B[label="1"];
+A->C[label="0"];
+B->A[label="1"];
+B->D[label="0"];
+C->D[label="1"];
+D->C[label="1"];
+C->A[label="0"];
+D->B[label="0"];
+}
