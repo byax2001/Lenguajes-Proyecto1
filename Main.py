@@ -302,8 +302,9 @@ while n != 4:
 
     #Apartado 3
     elif n==3:
-        print=("Brandon Oswaldo Yax Campos")
-        print("Lenguajes Formales y de Programacion ")
+        print("\n------------------------------------------------------")
+        print("Brandon Oswaldo Yax Campos")
+        print("Lenguajes Formales y de Programacion")
         print("Sección: B")
         print("Carnet: 201800534")
     Menus.Bienvenida.Menuprincipal("")
