@@ -24,7 +24,7 @@ class Bienvenida:
         print("2.Cargar archivo de entrada")
         print('3.Evaluar cadena')
         print("4.Eliminar recursividad por la izquierda")
-        print("5.Generar AFD en archivo")
+        print("5.Generar gramatica en archivo")
         print("6.Generar reporte de Gramatica Regular")
         print("7.Salir")
 

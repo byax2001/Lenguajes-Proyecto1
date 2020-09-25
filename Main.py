@@ -24,6 +24,9 @@ Terminales=[]
 Noterminalinicial=""
 producciones=[]
 
+
+
+
 #afd1=[nombre,estados[],alfabetos[],estadoinicial,estadosdeaceptacion,transiciones]
 estado1afd=[]
 alfabeto1afd=[]
@@ -216,7 +219,7 @@ while n != 4:
                 for i in listalineas:
                     listanueva.append(i.rstrip("\n"))
                 n=0
-                Gramatica=ModuloGramatica2.gramatica.Ingresogramatica(listanueva,Gramatica)
+                Gramatica=ModuloGramatica2.Gramatica.Ingresogramatica(listanueva,Gramatica)
                 print("\n-------------Gramaticas ingresadas con exito---------------")
                 print("\n")
 
@@ -291,8 +294,6 @@ while n != 4:
                     ModuloGramatica6.reporte.generarreporte(Gramatica[n - 1])
                     print("----------GENERACION DE REPORTE EXITOSO-------")
 
-
-
             Menus.Bienvenida.Menugramaticas("")
             n1 = int(input("Ingrese una opcion: "))
             if n1 > 7 and n1 < 0:
@@ -301,7 +302,10 @@ while n != 4:
 
     #Apartado 3
     elif n==3:
-        print("Apartado 3")
+        print=("Brandon Oswaldo Yax Campos")
+        print("Lenguajes Formales y de Programacion ")
+        print("Sección: B")
+        print("Carnet: 201800534")
     Menus.Bienvenida.Menuprincipal("")
     n=int(input("Ingrese una opcion: "))
     if n > 4 or n < 1:
