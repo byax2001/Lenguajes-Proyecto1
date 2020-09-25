@@ -1,4 +1,5 @@
 from io import open
+import os
 
 class Guardar:
 
@@ -42,3 +43,4 @@ class Guardar:
                     archivo.write(transicion+"\n")
         archivo.write("%")
         archivo.close()
+        os.system(f"{listaafdelegido[0]}.afd")

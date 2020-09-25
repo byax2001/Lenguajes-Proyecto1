@@ -1,4 +1,5 @@
 from io import open
+import os
 class archivoGramatica:
     def guardargramatica(listagramatica):
 
@@ -35,3 +36,4 @@ class archivoGramatica:
                     archivo.write(producciones+"\n")
         archivo.write("%")
         archivo.close()
+        os.system(f"{listagramatica[0]}.gre")
